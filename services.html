@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Massage Therapist - Services</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    /* Basic link styling with hover animation */
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    /* Additional animation for nav links */
+    nav ul li a {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
+    }
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 2px;
+      background: #ff4500; /* Underline color */
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    nav ul li a:hover {
+      transform: scale(1.05);
+      color: #ff4500;
+      letter-spacing: 1px;
+    }
+    nav ul li a:hover::after {
+      transform: scaleX(1);
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Header & Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFF7DE;
+      color: #fff;
+      padding: 10px 20px;
+      position: relative;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    /* Setting initial nav link color */
+    nav ul li a {
+      color: #008002;
+      font-weight: bold;
+    }
+    .logo img {
+      height: 100px;
+    }
+    /* Hamburger Icon */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin-bottom: 4px;
+      border-radius: 2px;
+    }
+    /* Responsive Navigation for Mobile */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #333;
+        position: absolute;
+        top: 60px; /* Below header */
+        left: 0;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Set 3 columns on larger screens */
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns on smaller screens */
+      }
+    }
+
+    .service-item {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .service-item h3 {
+      margin: 10px 0;
+    }
+    .service-item p {
+      margin: 10px 0;
+    }
+    /* Quantity Input & Button Styles */
+    .quantity-input {
+      width: 50px;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .add-to-cart-btn {
+      background: #28a745;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+    .add-to-cart-btn:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Animated Navigation -->
+  <header>
+    <!-- Hamburger Icon (visible on mobile) -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul id="nav-list">
+        <li><a href="index.html">Welcome</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="cart">
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      </div>
+      <div class="logo">
+        <img src="images/kirem.png" alt="Massage Therapist Logo" />
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <h1>Our Services</h1>
+    <div class="services-grid">
+      <!-- Swedish Massage (with image) -->
+      <div class="service-item">
+        <img src="https://via.placeholder.com/250x150?text=Swedish+Massage" alt="Swedish Massage" />
+        <h3>Swedish Massage</h3>
+        <p>A gentle, relaxing massage perfect for relieving stress and tension.</p>
+        <p><strong>Price:</strong> $70</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Swedish Massage', 70, this)">Add to Cart</button>
+      </div>
+
+      <!-- Deep Tissue Massage (with video) -->
+      <div class="service-item">
+        <video width="250" height="150" controls>
+          <source src="video/deep_tissue.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3>Deep Tissue Massage</h3>
+        <p>Focused pressure and techniques to relieve chronic muscle tension and pain.</p>
+        <p><strong>Price:</strong> $80</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Deep Tissue Massage', 80, this)">Add to Cart</button>
+      </div>
+
+      <!-- Aromatherapy Massage (with image) -->
+      <div class="service-item">
+        <img src="https://via.placeholder.com/250x150?text=Aromatherapy+Massage" alt="Aromatherapy Massage" />
+        <h3>Aromatherapy Massage</h3>
+        <p>Combines massage with essential oils to enhance relaxation and promote healing.</p>
+        <p><strong>Price:</strong> $75</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Aromatherapy Massage', 75, this)">Add to Cart</button>
+      </div>
+
+      <!-- Sports Massage (with video) -->
+      <div class="service-item">
+        <video width="250" height="150" controls>
+          <source src="video/sports_massage.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3>Sports Massage</h3>
+        <p>Designed for athletes to help prevent injuries, improve flexibility, and enhance performance.</p>
+        <p><strong>Price:</strong> $85</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Sports Massage', 85, this)">Add to Cart</button>
+      </div>
+
+      <!-- Reflexology (with image) -->
+      <div class="service-item">
+        <img src="https://via.placeholder.com/250x150?text=Reflexology" alt="Reflexology" />
+        <h3>Reflexology</h3>
+        <p>Focuses on pressure points in the feet, hands, and ears to promote overall well-being.</p>
+        <p><strong>Price:</strong> $65</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Reflexology', 65, this)">Add to Cart</button>
+      </div>
+
+      <!-- Masaje Terapéutico (with image) -->
+      <div class="service-item">
+        <img src="https://via.placeholder.com/250x150?text=Masaje+Terapéutico" alt="Masaje Terapéutico" />
+        <h3>Masaje Terapéutico</h3>
+        <p>Espalda con toallas calientes y cupping. Para dolores de nuca, espalda alta, media y baja.</p>
+        <p><strong>Price:</strong> $30 (20 min)</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Masaje Terapéutico', 30, this)">Add to Cart</button>
+      </div>
+
+      <!-- Masaje Swedish (with image) -->
+      <div class="service-item">
+        <img src="https://via.placeholder.com/250x150?text=Masaje+Swedish" alt="Masaje Swedish" />
+        <h3>Masaje Swedish</h3>
+        <p>A classic Swedish massage for relaxation and stress relief.</p>
+        <p><strong>Price:</strong> $60 (50 min) / $80 (70 min)</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Masaje Swedish', 60, this)">Add to Cart</button>
+      </div>
+
+      <!-- Masaje of Alignment (with image) -->
+      <div class="service-item">
+        <img src="https://via.placeholder.com/250x150?text=Masaje+of+Alignment" alt="Masaje of Alignment" />
+        <h3>Masaje of Alignment</h3>
+        <p>Incluye stretching, toallas calientes, cupping y stretching.</p>
+        <p><strong>Price:</strong> $70 (60 min)</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Masaje of Alignment', 70, this)">Add to Cart</button>
+      </div>
+
+      <!-- Deep Tissue (with image) -->
+      <div class="service-item">
+        <img src="https://via.placeholder.com/250x150?text=Deep+Tissue" alt="Deep Tissue" />
+        <h3>Deep Tissue</h3>
+        <p>Focused pressure to relieve chronic muscle tension and pain.</p>
+        <p><strong>Price:</strong> $45 (30 min)</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Deep Tissue', 45, this)">Add to Cart</button>
+      </div>
+
+      <!-- Only Stretching (with image) -->
+      <div class="service-item">
+        <img src="https://via.placeholder.com/250x150?text=Only+Stretching" alt="Only Stretching" />
+        <h3>Only Stretching</h3>
+        <p>Stretching session to improve flexibility and relieve tension.</p>
+        <p><strong>Price:</strong> $30 (20 min)</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Only Stretching', 30, this)">Add to Cart</button>
+      </div>
+
+      <!-- Reiki (with image) -->
+      <div class="service-item">
+        <img src="https://via.placeholder.com/250x150?text=Reiki" alt="Reiki" />
+        <h3>Reiki</h3>
+        <p>Energy healing to promote relaxation and balance.</p>
+        <p><strong>Price:</strong> $50</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Reiki', 50, this)">Add to Cart</button>
+      </div>
+
+      <!-- Barras de Access (with image) -->
+      <div class="service-item">
+        <img src="https://via.placeholder.com/250x150?text=Barras+de+Access" alt="Barras de Access" />
+        <h3>Barras de Access</h3>
+        <p>Energy work to release limiting beliefs and promote mental clarity.</p>
+        <p><strong>Price:</strong> $60</p>
+        <input type="number" class="quantity-input" value="1" min="1" />
+        <button class="add-to-cart-btn" onclick="addToCart('Barras de Access', 60, this)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+<footer class="footer">
+  <div class="footer-section">
+    <h3>Support</h3>
+    <ul>
+      <li><a href="#">Shipping & Delivery</a></li>
+      <li><a href="#">Return & Exchange</a></li>
+      <li><a href="#">Warranty & Disclaimer</a></li>
+      <li><a href="#">FAQs</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>About Us</h3>
+    <ul>
+      <li><a href="#">Our Story</a></li>
+      <li><a href="#">Stores</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>Customer Service</h3>
+    <p>Mon - Fri<br>10am - 7pm</p>
+    <p>Email: <a href="mailto:info@topologie.com">info@topologie.com</a></p>
+  </div>
+  <div class="footer-section">
+    <h3>Stay Tuned.</h3>
+    <p>Subscribe for early access, exclusive offers and more.</p>
+    <form action="#">
+      <input type="email" placeholder="your-email@example.com" required>
+      <button type="submit">JOIN</button>
+    </form>
+  </div>
+  <div class="footer-bottom">
+    <div class="social-media">
+      <a href="#" aria-label="Facebook"><img src="images/facebook.png" alt=""></a>
+      <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt=""></a>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- JavaScript for Cart Functionality -->
+  <script>
+    // Array to hold cart items
+    let cart = [];
+
+    function addToCart(serviceName, price, button) {
+      // Get the quantity from the sibling input field
+      const quantityInput = button.parentElement.querySelector('.quantity-input');
+      const quantity = parseInt(quantityInput.value);
+      if (quantity > 0) {
+        // Check if the service is already in the cart; if so, increase quantity
+        const existingItem = cart.find(item => item.serviceName === serviceName);
+        if (existingItem) {
+          existingItem.quantity += quantity;
+        } else {
+          cart.push({ serviceName, price, quantity });
+        }
+        updateCartCount();
+        alert(serviceName + ' has been added to your cart.');
+      } else {
+        alert('Please enter a valid quantity.');
+      }
+    }
+
+    // Update the cart count displayed in the header
+    function updateCartCount() {
+      let totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('cart-count').textContent = totalQuantity;
+    }
+
+    // Hamburger Toggle for Mobile Navigation
+    const hamburger = document.getElementById('hamburger');
+    const navList = document.getElementById('nav-list');
+    hamburger.addEventListener('click', function() {
+      navList.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

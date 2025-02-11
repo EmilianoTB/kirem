@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIREM</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/kirem.png" type="image/png">
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    /* Basic link styling with hover animation */
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    /* Additional animation for nav links */
+    nav ul li a {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
+    }
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 2px;
+      background: #ff4500; /* Underline color */
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    nav ul li a:hover {
+      transform: scale(1.05);
+      color: #ff4500;
+      letter-spacing: 1px;
+    }
+    nav ul li a:hover::after {
+      transform: scaleX(1);
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Header & Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFF7DE;
+      color: #fff;
+      padding: 10px 20px;
+      position: relative;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    /* Setting initial nav link color */
+    nav ul li a {
+      color: #008002;
+      font-weight: bold;
+    }
+    .logo img {
+      height: 100px;
+    }
+    /* Hamburger Icon */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin-bottom: 4px;
+      border-radius: 2px;
+    }
+    /* Responsive Navigation for Mobile */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #333;
+        position: absolute;
+        top: 60px; /* Below header */
+        left: 0;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #008081, #008002, #94DF08, #008081);
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    /* Section Container */
+    section {
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    /* About Me Section */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+    }
+    /* Updated About Me image styles */
+    .about img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .about-text {
+      flex: 2 1 300px;
+    }
+
+    /* Services Preview Section */
+    .services-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .service-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .service-card img {
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .service-card h3 {
+      margin-bottom: 10px;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background: #f9f9f9;
+      padding: 40px 20px;
+    }
+    .testimonial {
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+      text-align: center;
+      font-style: italic;
+    }
+    .testimonial p {
+      margin-bottom: 10px;
+    }
+    .testimonial span {
+      display: block;
+      font-weight: bold;
+      color: #333;
+    }
+
+/* Call-to-Action Section */
+.cta {
+  background: linear-gradient(135deg, #008081, #008002, #94DF08);
+  color: #fff;
+  text-align: center;
+  padding: 60px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.cta a {
+  display: inline-block;
+  background: #fff;
+  color: #333;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.cta a:hover {
+  transform: scale(1.08);
+  color: #fff;
+  background: #ff4500;
+  box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+}
+
+  </style>
+</head>
+<body>
+  <!-- Header with Hamburger Navigation -->
+  <header>
+    <!-- Hamburger icon (visible on mobile) -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul id="nav-list">
+        <li><a href="index.html">Welcome</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Logo on the right -->
+    <div class="logo">
+      <img src="images/kirem.png" alt="Massage Therapist Logo" />
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Relax, Rejuvenate, Renew</h1>
+      <p>Experience the healing touch of our licensed massage therapy services.</p>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about-me">
+    <div class="container about">
+      <div>
+        <img src="images/PHOTO-2025-02-02-23-19-56.jpg" alt="Your Photo" />
+      </div>
+      <div class="about-text">
+        <h2 class="section-title">About Me</h2>
+       <p>Hello, I'm Merit Becerril, a licensed massage therapist with over 4 years of experience. I am passionate about helping my clients achieve relaxation and wellness through personalized therapy sessions.</p>
+
+       <p>My journey into massage therapy began when I discovered the transformative power of touch and the healing benefits it brings to both body and mind. I strive to create a serene and nurturing environment where you can truly unwind and rejuvenate.</p>
+
+       <p>Whether you're seeking relief from stress, muscle tension, or simply a moment of self-care, I'm here to guide you on your path to wellness.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview Section -->
+  <section id="services-preview">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-preview">
+        <div class="service-card">
+          <img src="images/pexels-anntarazevich-6560304.jpg" alt="Swedish Massage" />
+          <h3>Swedish Massage</h3>
+          <p>A relaxing massage ideal for stress relief and overall wellness.</p>
+        </div>
+        <div class="service-card">
+          <img src="images/pexels-koolshooters-6628654.jpg" alt="Deep Tissue Massage" />
+          <h3>Deep Tissue Massage</h3>
+          <p>Targeted techniques to alleviate chronic muscle tension.</p>
+        </div>
+        <div class="service-card">
+          <img src="images/pexels-cottonbro-3997984.jpg" alt="Hot Stone Massage" />
+          <h3>Hot Stone Massage</h3>
+          <p>Heated stones used to enhance relaxation and circulation.</p>
+        </div>
+        <!-- Add more service cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <div class="testimonial">
+        <p>"I am very satisfied with my service from Merit. Her unique method of combining techniques of massage, reflexology, and oils gave me relief from back pain and stress. The overall experience was extremely relaxing. I am happy to continue to use her as my go-to Massage Therapist."</p>
+        <span>- Madie C.</span>
+      </div>
+      <div class="testimonial">
+        <p>"Merit is a very knowledgeable massage therapist. She’s courteous and professional. You immediately can tell that she cares about healing by the questions she asks and how she is informative as to what techniques need to be applied to troubling issues. She also gives ideas on stretching techniques to allow you to further help yourself after a session. I will continue to use her for therapeutic care"</p>
+        <span>- Bill B.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to Experience True Relaxation?</h2>
+      <p>Book your appointment today and take the first step toward a healthier, more relaxed you.</p>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-section">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#">Shipping & Delivery</a></li>
+        <li><a href="#">Return & Exchange</a></li>
+        <li><a href="#">Warranty & Disclaimer</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>About Us</h3>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Stores</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Customer Service</h3>
+      <p>Mon - Fri<br>10am - 7pm</p>
+      <p>Email: <a href="mailto:info@topologie.com">info@topologie.com</a></p>
+    </div>
+    <div class="footer-section">
+      <h3>Stay Tuned.</h3>
+      <p>Subscribe for early access, exclusive offers and more.</p>
+      <form action="#">
+        <input type="email" placeholder="your-email@example.com" required>
+        <button type="submit">JOIN</button>
+      </form>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-media">
+        <a href="#" aria-label="Facebook"><img src="images/facebook.png" alt=""></a>
+        <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt=""></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Hamburger Toggle -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navList = document.getElementById('nav-list');
+
+    hamburger.addEventListener('click', function() {
+      navList.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

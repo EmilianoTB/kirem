@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+
+
+body{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.footer {
+  background-color: #f8f8f8;
+  padding: 20px 20px; /* Reduce el padding en móviles */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  border-top: 1px solid #eaeaea;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #0073e6;
+}
+
+.footer-section form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.footer-section input[type="email"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+
+.footer-section button {
+  padding: 8px 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.footer-section button:hover {
+  background-color: #0073e6;
+}
+
+.footer-bottom {
+  grid-column: span 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Sección de redes sociales */
+.social-media {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.social-media a img {
+  width: 40px; /* Reduce el tamaño en móviles */
+  margin: 5px;
+}
+
+.payment-methods img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* --- Responsividad para móviles --- */
+@media (max-width: 768px) {
+  .footer {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+  }
+  
+  .footer-bottom {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .social-media {
+      justify-content: center; /* Centra las imágenes en móviles */
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .footer {
+      grid-template-columns: 1fr; /* 1 sola columna en móviles */
+      text-align: center;
+  }
+
+  .footer-section form {
+      flex-direction: column; /* Acomoda el formulario en columna */
+  }
+
+  .footer-section input[type="email"] {
+      width: 100%; /* Ancho completo */
+  }
+
+  .footer-section button {
+      width: 100%; /* Ancho completo */
+  }
+
+  .social-media {
+      flex-direction: column; /* Coloca los íconos uno debajo del otro */
+  }
+
+  .social-media a img {
+      width: 35px; /* Ajusta el tamaño de los iconos */
+      margin: 5px 0;
+  }
+}

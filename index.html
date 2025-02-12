@@ -6,254 +6,6 @@
   <title>KIREM</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="images/kirem.png" type="image/png">
-  <style>
-    /* Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
-    /* Basic link styling with hover animation */
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    /* Additional animation for nav links */
-    nav ul li a {
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
-    }
-    nav ul li a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 100%;
-      height: 2px;
-      background: #ff4500; /* Underline color */
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-    nav ul li a:hover {
-      transform: scale(1.05);
-      color: #ff4500;
-      letter-spacing: 1px;
-    }
-    nav ul li a:hover::after {
-      transform: scaleX(1);
-    }
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* Header & Navigation */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #FFF7DE;
-      color: #fff;
-      padding: 10px 20px;
-      position: relative;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
-    }
-    nav ul li {
-      margin-right: 20px;
-    }
-    /* Setting initial nav link color */
-    nav ul li a {
-      color: #008002;
-      font-weight: bold;
-    }
-    .logo img {
-      height: 100px;
-    }
-    /* Hamburger Icon */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-      margin-bottom: 4px;
-      border-radius: 2px;
-    }
-    /* Responsive Navigation for Mobile */
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: #333;
-        position: absolute;
-        top: 60px; /* Below header */
-        left: 0;
-      }
-      nav ul.active {
-        display: flex;
-      }
-      nav ul li {
-        margin: 10px 0;
-        text-align: center;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, #008081, #008002, #94DF08, #008081);
-      height: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      padding: 0 20px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-    }
-
-    /* Section Container */
-    section {
-      padding: 40px 20px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-title {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 2rem;
-      color: #333;
-    }
-
-    /* About Me Section */
-    .about {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 20px;
-    }
-    /* Updated About Me image styles */
-    .about img {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-    .about-text {
-      flex: 2 1 300px;
-    }
-
-    /* Services Preview Section */
-    .services-preview {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .service-card {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 15px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-    .service-card img {
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-    .service-card h3 {
-      margin-bottom: 10px;
-    }
-
-    /* Testimonials Section */
-    .testimonials {
-      background: #f9f9f9;
-      padding: 40px 20px;
-    }
-    .testimonial {
-      max-width: 600px;
-      margin: 0 auto 20px auto;
-      text-align: center;
-      font-style: italic;
-    }
-    .testimonial p {
-      margin-bottom: 10px;
-    }
-    .testimonial span {
-      display: block;
-      font-weight: bold;
-      color: #333;
-    }
-
-/* Call-to-Action Section */
-.cta {
-  background: linear-gradient(135deg, #008081, #008002, #94DF08);
-  color: #fff;
-  text-align: center;
-  padding: 60px 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.cta h2 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.cta p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
-}
-
-.cta a {
-  display: inline-block;
-  background: #fff;
-  color: #333;
-  padding: 12px 25px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-}
-
-.cta a:hover {
-  transform: scale(1.08);
-  color: #fff;
-  background: #ff4500;
-  box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
-}
-
-  </style>
 </head>
 <body>
   <!-- Header with Hamburger Navigation -->
@@ -292,8 +44,8 @@
         <img src="images/PHOTO-2025-02-02-23-19-56.jpg" alt="Your Photo" />
       </div>
       <div class="about-text">
-        <h2 class="section-title">About Me</h2>
-       <p>Hello, I'm Merit Becerril, a licensed massage therapist with over 4 years of experience. I am passionate about helping my clients achieve relaxation and wellness through personalized therapy sessions.</p>
+        <h2 class="section-title-merit">Hello, I'm Merit Becerril</h2>
+       <p>A licensed massage therapist with over 4 years of experience. I am passionate about helping my clients achieve relaxation and wellness through personalized therapy sessions.</p>
 
        <p>My journey into massage therapy began when I discovered the transformative power of touch and the healing benefits it brings to both body and mind. I strive to create a serene and nurturing environment where you can truly unwind and rejuvenate.</p>
 
@@ -309,18 +61,18 @@
       <div class="services-preview">
         <div class="service-card">
           <img src="images/pexels-anntarazevich-6560304.jpg" alt="Swedish Massage" />
-          <h3>Swedish Massage</h3>
-          <p>A relaxing massage ideal for stress relief and overall wellness.</p>
+          <h3>Neuromuscular massage</h3>
+          <p>A therapeutic massage designed to target muscle tension, improve circulation, and alleviate chronic pain, promoting deeper relaxation and muscle recovery.</p>
         </div>
         <div class="service-card">
-          <img src="images/pexels-koolshooters-6628654.jpg" alt="Deep Tissue Massage" />
-          <h3>Deep Tissue Massage</h3>
-          <p>Targeted techniques to alleviate chronic muscle tension.</p>
+          <img src="images/pexels-cottonbro-3997984.jpg" alt="Deep Tissue Massage" />
+          <h3>Aromatherapy maassage</h3>
+          <p>A soothing massage that combines essential oils with gentle techniques to promote relaxation, reduce stress, and enhance overall well-being through the healing power of scent and touch.</p>
         </div>
         <div class="service-card">
-          <img src="images/pexels-cottonbro-3997984.jpg" alt="Hot Stone Massage" />
-          <h3>Hot Stone Massage</h3>
-          <p>Heated stones used to enhance relaxation and circulation.</p>
+          <img src="images/pexels-koolshooters-6628654.jpg" alt="Hot Stone Massage" />
+          <h3>Deep massage</h3>
+          <p>A focused massage that targets the deeper layers of muscle and connective tissue to relieve chronic pain, improve flexibility, and promote long-lasting relaxation.</p>
         </div>
         <!-- Add more service cards as needed -->
       </div>

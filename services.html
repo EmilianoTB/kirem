@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Massage Therapist - Services</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     /* Reset & Base Styles */
     * {
@@ -202,8 +203,7 @@
         <img src="images/swedishhhmassage.jpg" alt="Swedish Massage" />
         <h3>Swedish Massage</h3>
         <p>A gentle, relaxing massage perfect for relieving stress and tension.</p>
-        <p><strong>Price:</strong> $70</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
+        <p><strong>50 min Price:</strong> $60</p>
         <button class="add-to-cart-btn" onclick="addToCart('Swedish Massage', 70, this)">Add to Cart</button>
       </div>
 
@@ -212,142 +212,86 @@
         <img src="images/deeptissuemassage.webp" alt="Swedish Massage" />
         <h3>Deep Tissue Massage</h3>
         <p>Focused pressure and techniques to relieve chronic muscle tension and pain.</p>
-        <p><strong>Price:</strong> $80</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
+        <p><strong>40 min Price:</strong> $60</p>
         <button class="add-to-cart-btn" onclick="addToCart('Deep Tissue Massage', 80, this)">Add to Cart</button>
-      </div>
-
-      <!-- Aromatherapy Massage (with image) -->
-      <div class="service-item">
-        <img src="images/aromatherapymassage.jpg" alt="Aromatherapy Massage" />
-        <h3>Aromatherapy Massage</h3>
-        <p>Combines massage with essential oils to enhance relaxation and promote healing.</p>
-        <p><strong>Price:</strong> $75</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
-        <button class="add-to-cart-btn" onclick="addToCart('Aromatherapy Massage', 75, this)">Add to Cart</button>
-      </div>
-
-      <!-- Reflexology (with image) -->
-      <div class="service-item">
-        <img src="https://via.placeholder.com/250x150?text=Reflexology" alt="Reflexology" />
-        <h3>Reflexology</h3>
-        <p>Focuses on pressure points in the feet, hands, and ears to promote overall well-being.</p>
-        <p><strong>Price:</strong> $65</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
-        <button class="add-to-cart-btn" onclick="addToCart('Reflexology', 65, this)">Add to Cart</button>
       </div>
 
       <!-- Masaje Terapéutico (with image) -->
       <div class="service-item">
-        <img src="https://via.placeholder.com/250x150?text=Masaje+Terapéutico" alt="Masaje Terapéutico" />
-        <h3>Masaje Terapéutico</h3>
-        <p>Espalda con toallas calientes y cupping. Para dolores de nuca, espalda alta, media y baja.</p>
-        <p><strong>Price:</strong> $30 (20 min)</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
+        <img src="images/therapeutic-massage.jpg" alt="Masaje Terapéutico" />
+        <h3>Therapeutic massage</h3>
+        <p>Targeted treatment to relieve pain, reduce tension, and restore balance with deep tissue work, stretching, and neuromuscular therapy.</p>
+        <p><strong>50 min Price:</strong> $60</p>
         <button class="add-to-cart-btn" onclick="addToCart('Masaje Terapéutico', 30, this)">Add to Cart</button>
-      </div>
-
-      <!-- Masaje Swedish (with image) -->
-      <div class="service-item">
-        <img src="https://via.placeholder.com/250x150?text=Masaje+Swedish" alt="Masaje Swedish" />
-        <h3>Masaje Swedish</h3>
-        <p>A classic Swedish massage for relaxation and stress relief.</p>
-        <p><strong>Price:</strong> $60 (50 min) / $80 (70 min)</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
-        <button class="add-to-cart-btn" onclick="addToCart('Masaje Swedish', 60, this)">Add to Cart</button>
       </div>
 
       <!-- Masaje of Alignment (with image) -->
       <div class="service-item">
-        <img src="https://via.placeholder.com/250x150?text=Masaje+of+Alignment" alt="Masaje of Alignment" />
-        <h3>Masaje of Alignment</h3>
-        <p>Incluye stretching, toallas calientes, cupping y stretching.</p>
-        <p><strong>Price:</strong> $70 (60 min)</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
+        <img src="images/alignment-massage.jpg" alt="Masaje of Alignment" />
+        <h3>Alignment massage</h3>
+        <p>Includes stretching, hot towels, cupping, and deep muscle release.</p>
+        <p><strong>50 min Price:</strong> $60</p>
         <button class="add-to-cart-btn" onclick="addToCart('Masaje of Alignment', 70, this)">Add to Cart</button>
       </div>
 
-      <!-- Deep Tissue (with image) -->
-      <div class="service-item">
-        <img src="https://via.placeholder.com/250x150?text=Deep+Tissue" alt="Deep Tissue" />
-        <h3>Deep Tissue</h3>
-        <p>Focused pressure to relieve chronic muscle tension and pain.</p>
-        <p><strong>Price:</strong> $45 (30 min)</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
-        <button class="add-to-cart-btn" onclick="addToCart('Deep Tissue', 45, this)">Add to Cart</button>
-      </div>
 
       <!-- Only Stretching (with image) -->
       <div class="service-item">
-        <img src="https://via.placeholder.com/250x150?text=Only+Stretching" alt="Only Stretching" />
+        <img src="images/stretchingmassage.jpg" alt="Only Stretching" />
         <h3>Only Stretching</h3>
         <p>Stretching session to improve flexibility and relieve tension.</p>
-        <p><strong>Price:</strong> $30 (20 min)</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
+        <p><strong>20 min Price:</strong>$30</p>
         <button class="add-to-cart-btn" onclick="addToCart('Only Stretching', 30, this)">Add to Cart</button>
       </div>
 
       <!-- Reiki (with image) -->
       <div class="service-item">
-        <img src="https://via.placeholder.com/250x150?text=Reiki" alt="Reiki" />
+        <img src="images/reiki.jpg" alt="Reiki" />
         <h3>Reiki</h3>
         <p>Energy healing to promote relaxation and balance.</p>
-        <p><strong>Price:</strong> $50</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
+        <p><strong>Session Price:</strong>$50</p>
         <button class="add-to-cart-btn" onclick="addToCart('Reiki', 50, this)">Add to Cart</button>
       </div>
 
       <!-- Barras de Access (with image) -->
       <div class="service-item">
-        <img src="https://via.placeholder.com/250x150?text=Barras+de+Access" alt="Barras de Access" />
-        <h3>Barras de Access</h3>
+        <img src="images/accessbars.jpg" alt="Barras de Access" />
+        <h3>Access Bars</h3>
         <p>Energy work to release limiting beliefs and promote mental clarity.</p>
-        <p><strong>Price:</strong> $60</p>
-        <input type="number" class="quantity-input" value="1" min="1" />
+        <p><strong>Price:</strong>$50</p>
         <button class="add-to-cart-btn" onclick="addToCart('Barras de Access', 60, this)">Add to Cart</button>
       </div>
     </div>
   </div>
 
-<footer class="footer">
-  <div class="footer-section">
-    <h3>Support</h3>
-    <ul>
-      <li><a href="#">Shipping & Delivery</a></li>
-      <li><a href="#">Return & Exchange</a></li>
-      <li><a href="#">Warranty & Disclaimer</a></li>
-      <li><a href="#">FAQs</a></li>
-    </ul>
-  </div>
-  <div class="footer-section">
-    <h3>About Us</h3>
-    <ul>
-      <li><a href="#">Our Story</a></li>
-      <li><a href="#">Stores</a></li>
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Terms of Service</a></li>
-    </ul>
-  </div>
-  <div class="footer-section">
-    <h3>Customer Service</h3>
-    <p>Mon - Fri<br>10am - 7pm</p>
-    <p>Email: <a href="mailto:info@topologie.com">info@topologie.com</a></p>
-  </div>
-  <div class="footer-section">
-    <h3>Stay Tuned.</h3>
-    <p>Subscribe for early access, exclusive offers and more.</p>
-    <form action="#">
-      <input type="email" placeholder="your-email@example.com" required>
-      <button type="submit">JOIN</button>
-    </form>
-  </div>
-  <div class="footer-bottom">
-    <div class="social-media">
-      <a href="#" aria-label="Facebook"><img src="images/facebook.png" alt=""></a>
-      <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt=""></a>
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="footer-links">
+        <a href="#">Info</a>
+        <a href="#">Support</a>
+        <a href="#">Marketing</a>
+      </div>
+
+      <!-- Legal Links -->
+      <div class="footer-legal">
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="footer-copyright">
+        © 2018 KIREM
+      </p>
     </div>
-  </div>
-</footer>
+  </footer>
 
 
   <!-- JavaScript for Cart Functionality -->

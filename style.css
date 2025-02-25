@@ -45,7 +45,7 @@ nav ul li a::after {
 }
 nav ul li a:hover {
   transform: scale(1.05);
-  color: #ff4500;
+  color: #94DF08;
   letter-spacing: 1px;
 }
 nav ul li a:hover::after {
@@ -119,13 +119,13 @@ nav ul li a {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #008081, #008002, #94DF08, #008081);
+  background: url('images/massage-background.jpg') no-repeat center center/cover;
   height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
+  color: #34513f;
   padding: 0 20px;
 }
 
@@ -221,13 +221,14 @@ section {
 
 /* Call-to-Action Section */
 .cta {
-background: linear-gradient(135deg, #008081, #008002, #94DF08);
-color: #fff;
-text-align: center;
-padding: 60px 30px;
-border-radius: 10px;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-transition: transform 0.3s ease;
+  /* Replace 'your-image.jpg' with your actual image path */
+  background: url('images/massagebackground2.avif') no-repeat center center/cover;
+  color: #34513f;
+  text-align: center;
+  padding: 60px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
 .cta h2 {
@@ -257,141 +258,118 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 .cta a:hover {
 transform: scale(1.08);
 color: #fff;
-background: #ff4500;
+background: #94DF08;
 box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
 }
 
 
 
+/* Footer styles */
 .footer {
-  background-color: #f8f8f8;
-  padding: 20px 20px; /* Reduce el padding en móviles */
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  border-top: 1px solid #eaeaea;
+  background-color: #FFF7DE;
+  color: #008002;
+  padding: 40px 20px;
+  text-align: center; /* Fallback for smaller screens */
 }
 
-.footer-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; /* Mobile-first approach */
+  align-items: center;    /* Center everything on small screens */
 }
 
-.footer-section ul {
-  list-style: none;
-  padding: 0;
+/* Social Icons */
+.social-icons {
+  margin-bottom: 20px;
 }
-
-.footer-section ul li {
-  margin-bottom: 8px;
-}
-
-.footer-section ul li a {
+.social-icons a {
+  color: #008002;
+  font-size: 18px;
+  margin: 0 8px;
   text-decoration: none;
-  color: #000;
-  transition: color 0.3s;
-}
-
-.footer-section ul li a:hover {
-  color: #0073e6;
-}
-
-.footer-section form {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.footer-section input[type="email"] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  flex-grow: 1;
-}
-
-.footer-section button {
-  padding: 8px 16px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.footer-section button:hover {
-  background-color: #0073e6;
-}
-
-.footer-bottom {
-  grid-column: span 4;
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  flex-wrap: wrap;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(58, 189, 82, 0.1);
+  transition: background-color 0.3s ease;
+}
+.social-icons a:hover {
+  background-color: rgba(61, 154, 40, 0.3);
 }
 
-/* Sección de redes sociales */
-.social-media {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+/* Footer links (Info, Support, Marketing) */
+.footer-links {
+  margin-bottom: 15px;
+}
+.footer-links a {
+  color: #008002;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 14px;
+}
+.footer-links a:hover {
+  text-decoration: underline;
 }
 
-.social-media a img {
-  width: 40px; /* Reduce el tamaño en móviles */
-  margin: 5px;
+/* Legal links (Terms of Use, Privacy Policy) */
+.footer-legal {
+  margin-bottom: 15px;
+}
+.footer-legal a {
+  color: #008002;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 14px;
+}
+.footer-legal a:hover {
+  text-decoration: underline;
 }
 
-.payment-methods img {
-  height: 30px;
-  margin-right: 10px;
+/* Copyright */
+.footer-copyright {
+  font-size: 12px;
+  opacity: 0.7;
 }
 
-/* --- Responsividad para móviles --- */
-@media (max-width: 768px) {
-  .footer {
-      grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
-  }
-  
-  .footer-bottom {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-  }
+/* Media Queries */
 
-  .social-media {
-      justify-content: center; /* Centra las imágenes en móviles */
+/* Tablet: Adjust spacing, maybe switch to row layout if desired */
+@media (min-width: 600px) and (max-width: 991px) {
+  .footer-container {
+    /* If you want the items on one row, you could do: */
+    /* flex-direction: row; 
+       flex-wrap: wrap; 
+       justify-content: space-between; */
   }
 }
 
-/* Para pantallas muy pequeñas */
-@media (max-width: 480px) {
-  .footer {
-      grid-template-columns: 1fr; /* 1 sola columna en móviles */
-      text-align: center;
+/* Desktop: Display items in rows or columns, depending on your preference */
+@media (min-width: 992px) {
+  .footer-container {
+    /* Switch to a row layout for large screens */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left; /* Let the content align to left if desired */
   }
 
-  .footer-section form {
-      flex-direction: column; /* Acomoda el formulario en columna */
+  .social-icons {
+    margin-bottom: 0; /* Remove bottom margin if they are side-by-side */
   }
 
-  .footer-section input[type="email"] {
-      width: 100%; /* Ancho completo */
-  }
-
-  .footer-section button {
-      width: 100%; /* Ancho completo */
-  }
-
-  .social-media {
-      flex-direction: column; /* Coloca los íconos uno debajo del otro */
-  }
-
-  .social-media a img {
-      width: 35px; /* Ajusta el tamaño de los iconos */
-      margin: 5px 0;
+  .footer-links,
+  .footer-legal {
+    margin-bottom: 0;
   }
 }
+
+
+
+
+
+
